@@ -1,3 +1,3 @@
-# React + TypeScript + Vite + Proton
+# React + TypeScript + Vite + Electron
 
-Practice for React Fullstack app with Express launch using Proton for desktop deployment
+Practice for React Fullstack app with Express launch using Electron for desktop deployment
