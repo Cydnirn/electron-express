@@ -46,7 +46,7 @@ function createWindow() {
     mainWindow.on("closed", () => (mainWindow = null));
 }
 
-ipcMain.handle("getPort", (ev, data) => {
+ipcMain.handle("getPort", (_, data) => {
     console.log(`IPC Exec ${data}`);
     console.log(port);
     return port;

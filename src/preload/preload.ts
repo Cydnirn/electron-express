@@ -4,7 +4,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
     getPort: () => ipcRenderer.invoke("getPort", "Electron"),
     onPort: () => {
         let val;
-        ipcRenderer.on("onPort", (ev, data) => {
+        ipcRenderer.on("onPort", (_, data) => {
             console.log(data);
             val = data;
             return data;
