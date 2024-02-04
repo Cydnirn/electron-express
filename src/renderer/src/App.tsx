@@ -1,10 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './public/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [port, setPort] = useState("");
+
+  useEffect(() => {
+    const exec = async () => {
+      let newPort: string = "";
+      while(!newPort){
+        newPort = await window.electronAPI.getPort();
+      }
+      setPort(newPort)
+    }
+    exec();
+
+  })
+
+  console.log("Render run")
 
   return (
     <>
@@ -28,6 +43,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <p>Port {port}</p>
     </>
   )
 }

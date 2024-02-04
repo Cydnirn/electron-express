@@ -1,10 +1,19 @@
-const express = require("express");
+import { IpcMain, ipcMain } from "electron";
+import express from "express";
 //import getPort from "get-port-electron";
 
 const app = express();
+let port: number;
 
-export default async function StartServer(listener: any) {
-    app.listen(8000, () => {
-        console.log(`Server started on port 8000`);
+async function StartServer() {
+    const server = app.listen(0, () => {
+        console.log(`Server started on port 0`);
+        ipcMain.emit("server-started", 0);
     });
 }
+
+const start = async () => {
+    await StartServer();
+};
+
+start();
