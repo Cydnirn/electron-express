@@ -19,8 +19,6 @@ function App() {
 
   })
 
-  console.log("Render run")
-
   return (
     <>
       <div>
